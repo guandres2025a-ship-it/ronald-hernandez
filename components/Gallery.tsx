@@ -15,7 +15,7 @@ export default function Gallery() {
   );
 
   return (
-    <section id="cuadros" className="py-24 bg-[var(--background)] relative">
+    <section id="cuadros" className="py-24 bg-transparent relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -45,23 +45,23 @@ export default function Gallery() {
         </motion.div>
 
         {/* Asymmetric Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14">
           <AnimatePresence>
             {filteredWorks.map((work, index) => (
               <motion.div
                 layout
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 50, rotate: index % 2 === 0 ? -2 : 2 }}
+                animate={{ opacity: 1, y: 0, rotate: index % 3 === 0 ? -1 : index % 3 === 1 ? 1 : 0 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 key={work.id}
                 // Asimetría: aplicar un margen extra a algunos elementos basado en su índice
-                className={`relative group overflow-hidden bg-[var(--card-bg)] rounded-xl cursor-pointer shadow-2xl shadow-black/60 ${
-                  index % 3 === 1 ? 'md:mt-16 lg:mt-24' : index % 3 === 2 ? 'lg:mt-12' : ''
+                className={`relative group overflow-hidden bg-[var(--card-bg)] rounded-organic cursor-pointer shadow-2xl shadow-black/60 hover:z-10 ${
+                  index % 3 === 1 ? 'md:mt-20 lg:mt-32' : index % 3 === 2 ? 'lg:mt-16' : ''
                 }`}
                 onClick={() => setSelectedWork(work)}
               >
-                <div className="relative w-full aspect-[4/5] overflow-hidden">
+                <div className="relative w-full aspect-[4/5] overflow-hidden rounded-organic">
                   <motion.div layoutId={`image-${work.id}`} className="w-full h-full relative">
                     <Image
                       src={work.image}
@@ -112,13 +112,13 @@ export default function Gallery() {
               {/* Flying Image Container (Left side) */}
               <motion.div 
                 layoutId={`image-${selectedWork.id}`}
-                className="relative w-full md:w-2/3 lg:w-3/4 h-1/2 md:h-full rounded-xl overflow-hidden shadow-2xl flex items-center justify-center bg-black/20"
+                className="relative w-full md:w-2/3 lg:w-3/4 h-1/2 md:h-full rounded-organic overflow-hidden shadow-2xl flex items-center justify-center bg-black/20 -rotate-1"
               >
                 <Image
                   src={selectedWork.image}
                   alt={selectedWork.title}
                   fill
-                  className="object-contain" // object-contain respeta toda la obra sin recortes
+                  className="object-contain p-4" // object-contain respeta toda la obra sin recortes
                   priority
                 />
               </motion.div>
@@ -128,7 +128,7 @@ export default function Gallery() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
-                className="w-full md:w-1/3 lg:w-1/4 h-1/2 md:h-full p-6 md:p-8 flex flex-col justify-center rounded-xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl"
+                className="w-full md:w-1/3 lg:w-1/4 h-1/2 md:h-full p-8 md:p-10 flex flex-col justify-center rounded-organic-alt bg-[var(--background)]/80 backdrop-blur-2xl border border-white/10 shadow-2xl rotate-1"
               >
                 <div className="flex-1 flex flex-col justify-center">
                   <span className="text-yellow-400 text-xs font-bold tracking-widest uppercase mb-4 block">{selectedWork.category}</span>
