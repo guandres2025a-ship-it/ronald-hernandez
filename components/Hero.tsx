@@ -73,7 +73,7 @@ export default function Hero() {
           <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-[0_30px_80px_-24px_rgba(0,0,0,0.8)] backdrop-blur-xl">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem]">
               <Image
-                src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&q=80"
+                src="/ronald2.webp"
                 alt="Obra de Ronald Hernández"
                 fill
                 priority
