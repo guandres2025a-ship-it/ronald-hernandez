@@ -16,10 +16,10 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Ronald Hernández | Pintor & Muralista',
-  description: 'Portafolio editorial de Ronald Hernández, pintor, muralista e historiador.',
+  title: 'Ronald Hernández - Artista Pintor & Muralista',
+  description: 'Descubre la obra de Ronald Hernández, pintor, muralista e historiador. Una exploracion visual donde el arte dialoga con la memoria, el territorio y la identidad',
   icons: {
-    icon: '/FondoPagina.jpg',
+    icon: '/favicon.ico',
   },
 };
 

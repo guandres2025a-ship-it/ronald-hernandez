@@ -21,10 +21,22 @@
 
 :root {
   --background: #06070b;
+  --background-secondary: #0c0d12;
+  --surface: #11131b;
+  --surface-hover: #171922;
   --foreground: #f7f4ed;
-  --card-bg: #0f1118;
+  --foreground-muted: #c8c8c8;
   --muted: #8f94a4;
   --accent: #d9bc7f;
+  --muted: #8f94a4;
+  --accent: #d9bc7f;
+  --accent-hover: #e7ca8b;
+  --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 40px 120px rgba(0, 0, 0, 0.5);
+  --radius-sm: 0.75rem;
+  --radius-md: 1.5rem;
+  --radius-lg: 2rem;
 }
 
 html {

@@ -36,7 +36,7 @@ export default function Gallery() {
           <div className="max-w-2xl">
             <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--accent)]">Galería selecta</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] text-white sm:text-4xl">
-              Obras que hablan de forma, color y memoria.
+              Cada obra es un fragmento de una historia que continua en la mirada del espectador.
             </h2>
           </div>
           <div className="flex flex-wrap gap-2">

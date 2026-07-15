@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Palette, Sparkles } from 'lucide-react';
+import { ArrowRight, Palette } from 'lucide-react';
 import Image from 'next/image';
 
 const highlights = [
@@ -25,16 +25,19 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="max-w-2xl"
         >
-          <div className="inline-flex itemJs-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] font-medium uppercase tracking-[0.32em] text-white/70">
-            <Sparkles size={14} className="text-[var(--accent)]" />
-            Artista Muralista | Historiador
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.32em] text-white/70">
+            <span className="h-2 w-2 rounded-full bg-[var(--accent)]" />
+            Pintor ● Muralista ● Historiador
           </div>
 
-          <h1 className="mt-8 text-5xl font-semibold leading-[0.9] tracking-[-0.03em] text-white sm:text-6xl lg:text-7xl">
-            Ronald <span className="font-light text-white/70">Hernández</span>
+          <h1 className="mt-10 font-serif text-6xl font-semibold leading-[0.88] tracking-[-0.04em] text-white sm:text-7xl lg:text-[6rem]">
+            Ronald 
+            <span className="block font-light text-white/75">
+            Hernández
+            </span>
           </h1>
 
-          <p className="mt-8 max-w-xl text-lg leading-8 text-white/70 sm:text-xl">
+          <p className="mt-10 max-w-xl font-serif text-2xl italic leading-relaxed text-white/80 sm:text-3xl">
             Bienvenidos a mi visión del mundo.
           </p>
 
@@ -70,7 +73,7 @@ export default function Hero() {
           className="relative"
         >
           <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-white/15 via-transparent to-transparent blur-3xl" />
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-[0_30px_80px_-24px_rgba(0,0,0,0.8)] backdrop-blur-xl">
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-white/5 p-3 shadow-[0_40px_120px_-24px_rgba(0,0,0,0.9)] backdrop-blur-xl">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem]">
               <Image
                 src="/ronald2.webp"

@@ -6,12 +6,12 @@ import TimelineSection from '@/components/TimelineSection';
 
 export default function Home() {
   return (
-    <>
+    <main>
       <Hero />
       <Gallery />
       <MuralesSection />
       <BiografiaSection />
       <TimelineSection />
-    </>
+    </main>
   );
 }

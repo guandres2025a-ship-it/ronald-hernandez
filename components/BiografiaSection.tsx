@@ -39,9 +39,9 @@ export default function BiografiaSection() {
           viewport={{ once: true }}
           className="flex flex-col justify-center"
         >
-          <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--accent)]">Biografía del autor</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--accent)]">Sobre el artista</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] text-white sm:text-4xl">
-            La visión de un historiador visual.
+            El arte como testimonio del territorio.
           </h2>
 
           <div className="mt-8 space-y-6 text-lg leading-8 text-white/70">
