@@ -3,36 +3,103 @@
 import { motion } from 'framer-motion';
 
 const exhibitions = [
+  
   {
     year: '2025',
-    title: 'Museo a cielo abierto',
-    location: 'Barrio Abajo, Barranquilla',
+    title: 'MUJER: MIRADAS Y MATICES',
+    location: 'Aduana de Barranquilla',
+    type: 'Exhibición personal',
+  },
+  {
+    year: '2024',
+    title: 'V BIENAL INTERNACIONAL DE ARTE BLANCO',
+    location: 'BOGOTA DC',
     type: 'Exhibición colectiva',
   },
   {
-    year: '2025',
-    title: 'Mujer: Miradas y Matices',
-    location: 'Aduana de Barranquilla',
-    type: 'Exhibición personal',
+    year: '2024',
+    title: 'QATAR INTERNATIONAL ART FESTIVAL',
+    location: 'Doha, Qatar',
+    type: 'Exhibición colectiva',
+  },
+  {
+    year: '2024',
+    title: '1ST FUMARATO ART FESTIVAL',
+    location: '',
+    type: 'Exhibición colectiva',
+  },
+  {
+    year: '2023',
+    title: 'SORORIDAD BOHEMIA',
+    location: 'Bogotá, Colombia',
+    type: 'Exhibición Individual',
   },
   {
     year: '2022',
     title: 'Feria Internacional del Arte FIAB',
     location: 'Barcelona, España',
-    type: 'Feria internacional',
+    type: 'Exhibición colectiva',
+  },
+  {
+    year: '2021',
+    title: '',
+    location: 'Consulado de Colombia en Miami, Estados Unidos',
+    type: 'Exhibición colectiva',
+  },
+  {
+    year: '2021',
+    title: '',
+    location: 'Museo Naval, Cartagena, Colombia',
+    type: 'Exhibición colectiva',
+  },
+  {
+    year: '2019',
+    title: '',
+    location: 'Colegio Hebreo Union, Barranquilla, Colombia',
+    type: 'Exhibición colectiva',
+  },
+   {
+    year: '2019',
+    title: '',
+    location: 'Colegio Educativo Y Cultural Reyes Catolicos, Barranquilla, Colombia',
+    type: 'Exhibición colectiva',
+  }, {
+    year: '2018',
+    title: '',
+    location: 'Zona L, Bogota, Colombia',
+    type: 'Exhibición colectiva',
+  },
+   {
+    year: '2018',
+    title: 'XLVII MUESTRA PICTORICA Y CULTURAL DEL CARIBE',
+    location: 'Galeria Arcot, Bogota',
+    type: 'Exhibición colectiva',
   },
   {
     year: '2015',
-    title: 'Impresionismo Pop',
+    title: 'IMPRESIONISMO POP',
     location: 'Bogotá, Colombia',
     type: 'Exhibición personal',
   },
   {
     year: '2014',
-    title: 'El Caribe Une las Orillas',
+    title: 'EL CARIBE UNE LAS ORILLAS',
     location: 'Bogotá, Colombia',
     type: 'Exhibición colectiva',
   },
+  {
+    year: '2014',
+    title: 'MOMENTOS',
+    location: 'Centro Comercial Buenavista, Barranquilla',
+    type: 'Exhibición Individual',
+  },
+  {
+    year: '2014',
+    title: 'MOMENTOS',
+    location: 'Centro comercial Barcelona Plaza, Barranquilla',
+    type: 'Exhibición Individual',
+
+  }
 ];
 
 export default function TimelineSection() {
