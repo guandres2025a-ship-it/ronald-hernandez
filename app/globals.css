@@ -14,24 +14,36 @@
   .bg-fixed {
     background-attachment: fixed;
   }
-  .rounded-organic {
-    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-  }
-  .rounded-organic-alt {
-    border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px;
+  .glass-panel {
+    @apply border border-white/10 bg-white/5 backdrop-blur-xl;
   }
 }
 
 :root {
-  --background: #0e0c15; /* Sombra un poco más suave y cálida */
-  --foreground: #f5f0e6; /* Tono cálido tipo papel */
-  --card-bg: #151221; /* Fondo de tarjetas orgánico */
+  --background: #06070b;
+  --foreground: #f7f4ed;
+  --card-bg: #0f1118;
+  --muted: #8f94a4;
+  --accent: #d9bc7f;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: #080808;
+  min-height: 100vh;
+  background-color: var(--background);
   color: var(--foreground);
-  background-image: radial-gradient(circle at 50% -20%, #1a1a1a 0%, #080808 80%);
+  background-image:
+    radial-gradient(circle at top left, rgba(217, 188, 127, 0.16), transparent 28%),
+    radial-gradient(circle at 85% 12%, rgba(255, 255, 255, 0.08), transparent 20%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.02), transparent 55%);
   background-attachment: fixed;
-  opacity: 1;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: rgba(217, 188, 127, 0.35);
+  color: white;
 }

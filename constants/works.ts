@@ -4,65 +4,153 @@ export interface Work {
   id: string;
   title: string;
   category: Category;
+  collection: string;
   image: string;
   description: string;
   technique: string;
   year: string;
+  type?: 'Externo' | 'Interno';
 }
 
-export const works: Work[] = [
+export interface Cuadro {
+  id: string;
+  titulo: string;
+  imagenUrl: string;
+  año: string;
+  dimensiones: string;
+}
+
+export interface Serie {
+  id: string;
+  nombreSerie: string;
+  cuadros: Cuadro[];
+}
+
+export const seriesDeCuadros: Serie[] = [
   {
-    id: '1',
-    title: 'Sol Naranja',
-    category: 'Cuadros',
-    image: '/sol naranja.jpg',
-    description: 'Una mujer que vive un instante de goce bajo la sombrilla, con la piel cálida por el sol y un sabor refrescante en sus labios.',
-    technique: 'Acrílico sobre lienzo',
-    year: '2024',
+    id: 'Cotidianidad',
+    nombreSerie: 'Cotidianidad',
+    cuadros: [
+      {
+        id: 'Cotidianidad-01',
+        titulo: 'Café Colombiano',
+        imagenUrl: '/Serie_Cotidianidad/Cafe_Colombiano.webp',
+        año: '2025',
+        dimensiones: '60 x 30 cm',
+      },
+      {
+        id: 'Cotidianidad-02',
+        titulo: 'Escuela de Bellas Artes',
+        imagenUrl: '/Serie_Cotidianidad/Escuela_de_Bellas_Artes.webp',
+        año: '2024',
+        dimensiones: '1.40 x 1.20 cm',
+      },
+        {
+        id: 'Cotidianidad-03',
+        titulo: 'Rutina',
+        imagenUrl: '/Serie_Cotidianidad/Rutina.webp',
+        año: '2023',
+        dimensiones: '1.40 x 1.10 cm',
+      },
+        {
+        id: 'Cotidianidad-04',
+        titulo: 'Wini',
+        imagenUrl: '/Serie_Cotidianidad/Wini.webp',
+        año: '2021',
+        dimensiones: '1.40 x 1.40 cm',
+      },
+    ],
   },
   {
-    id: '2',
-    title: 'Músicos',
-    category: 'Cuadros',
-    image: '/Musicos.jpg',
-    description: 'Una composición rítmica donde la figura humana se funde con el instrumento. Las formas geométricas y el trazo libre evocan la resonancia del contrabajo, iluminados por un ambiente nostálgico y una paleta de violetas y naranjas intensos.',
-    technique: 'Acrílico sobre lienzo',
-    year: '2025',
+    id: 'Musicos',
+    nombreSerie: 'Musicos',
+    cuadros: [
+      {
+        id: 'Musicos-01',
+        titulo: 'Sin Titulo',
+        imagenUrl: '/Serie_Musicos/Sin_Titulo.webp',
+        año: '2024',
+        dimensiones: '170 x 110 cm',
+      },
+    ],
   },
   {
-    id: '3',
-    title: 'Enamorados',
-    category: 'Cuadros',
-    image: '/Enamorados.jpg',
-    description: 'Bajo la luz de un farol, dos amantes se abrazan resguardando un ramo de rosas. Esta pieza envuelve el romanticismo en colores fríos y púrpuras dramáticos, cortados por la calidez vibrante del amarillo y el rojo de las flores y la vestimenta.',
-    technique: 'Acrílico sobre lienzo',
-    year: '2013',
+    id: 'Pachamama',
+    nombreSerie: 'Pachamama',
+    cuadros: [
+      {
+        id: 'Pachamama-01',
+        titulo: 'Mujer Embera',
+        imagenUrl: '/Serie_Pachamama/Mujer_Embera.webp',
+        año: '2025',
+        dimensiones: '1.60 x 1.50 cm',
+      },
+      {
+        id: 'Pachamama-02',
+        titulo: 'Sin Titulo',
+        imagenUrl: '/Serie_Pachamama/Sin_Titulo.webp',
+        año: '2024',
+        dimensiones: '1.30 x 1.00 cm',
+      },      
+    ],
   },
   {
-    id: '4',
-    title: 'Renacimiento Urbano',
-    category: 'Murales',
-    image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&q=80',
-    description: 'Mural transformador en el centro histórico.',
-    technique: 'Aerosol y Acrílico',
-    year: '2023',
+    id: 'Parejas',
+    nombreSerie: 'Parejas',
+    cuadros: [
+      {
+        id: 'Parejas-01',
+        titulo: 'Enamorados',
+        imagenUrl: '/Serie_Parejas/Enamorados.webp',
+        año: '2024',
+        dimensiones: '1.70 x 1.00 cm',
+      },
+      {
+        id: 'Parejas-02',
+        titulo: 'Pareja de Enamorados',
+        imagenUrl: '/Serie_Parejas/Pareja_de_Enamorados.webp',
+        año: '2024',
+        dimensiones: '1.70 x 1.00 cm',
+      },      
+    ],
   },
   {
-    id: '5',
-    title: 'Ecos Dorados',
-    category: 'Cuadros',
-    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80',
-    description: 'Exploración de texturas y materiales.',
-    technique: 'Técnica mixta con pan de oro',
-    year: '2024',
+    id: 'Rostros',
+    nombreSerie: 'Rostros',
+    cuadros: [
+      {
+        id: 'Rostros-01', 
+        titulo: 'Transeuntes Femeninas',
+        imagenUrl: '/Serie_Rostros/Transeuntes_Femeninas.webp',
+        año: '2025',
+        dimensiones: '50cm x 30cm'
+      }
+    ]
   },
-  {
-    id: '6',
-    title: 'Memoria Colectiva',
-    category: 'Murales',
-    image: 'https://images.unsplash.com/photo-1578308422502-127db838b006?auto=format&fit=crop&q=80',
-    description: 'Una mirada a la historia a través del arte urbano.',
-    technique: 'Acrílico sobre bloque',
-    year: '2023',
+   {
+    id: 'Sororidad',
+    nombreSerie: 'Sororidad',
+    cuadros: [
+      {
+        id: 'Sororidad-01', 
+        titulo: 'Generaciones',
+        imagenUrl: '/Serie_Sororidad/Generaciones.webp',
+        año: '2025',
+        dimensiones: '1.60cm x 1.50cm'
+      }
+    ]
   }
 ];
+
+export const works: Work[] = seriesDeCuadros.flatMap((serie) =>
+  serie.cuadros.map((cuadro) => ({
+    id: `${serie.id}-${cuadro.id}`,
+    title: cuadro.titulo,
+    category: 'Cuadros' as Category,
+    collection: serie.nombreSerie,
+    image: cuadro.imagenUrl,
+    description: `${serie.nombreSerie} · ${cuadro.dimensiones}`,
+    technique: 'Acrílico sobre lienzo',
+    year: cuadro.año,
+  }))
+);

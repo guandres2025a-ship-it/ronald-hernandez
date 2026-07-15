@@ -5,19 +5,22 @@ import Navbar from '@/components/Navbar';
 import SmoothScroll from '@/components/SmoothScroll';
 import Preloader from '@/components/Preloader';
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 });
 
-const playfair = Playfair_Display({ 
+const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
 });
 
 export const metadata: Metadata = {
   title: 'Ronald Hernández | Pintor & Muralista',
-  description: 'Portafolio de Ronald Hernández, Pintor, Muralista e Historiador. Explora la galería y sus murales a gran escala.',
+  description: 'Portafolio editorial de Ronald Hernández, pintor, muralista e historiador.',
+  icons: {
+    icon: '/FondoPagina.jpg',
+  },
 };
 
 export default function RootLayout({
@@ -27,13 +30,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className="scroll-smooth">
-      <body className={`${inter.variable} ${playfair.variable} bg-[var(--background)] text-slate-50 antialiased selection:bg-yellow-400 selection:text-slate-950 font-sans`}>
+      <body className={`${inter.variable} ${playfair.variable} min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased font-sans`}>
         <SmoothScroll>
           <Preloader />
           <Navbar />
           <main>{children}</main>
-          <footer className="bg-[var(--background)] border-t border-white/5 py-12 text-center text-slate-500 text-sm">
-            <p>© {new Date().getFullYear()} Ronald Hernández. Todos los derechos reservados.</p>
+          <footer className="border-t border-white/10 bg-transparent py-12">
+            <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-sm text-white/55 sm:px-6 lg:flex-row lg:px-8">
+              <p>© {new Date().getFullYear()} Ronald Hernández. Todos los derechos reservados.</p>
+              <p className="text-white/35">Arte contemporáneo, memoria colectiva y espacio público.</p>
+            </div>
           </footer>
         </SmoothScroll>
       </body>

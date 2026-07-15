@@ -2,128 +2,139 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useMemo, useState } from 'react';
+
+const muralTypes: Array<'Todos' | 'Externo' | 'Interno'> = ['Todos', 'Externo', 'Interno'];
 
 const murales = [
   {
-    title: "Los Enamorados",
-    description: "Una exploración de la intimidad y el color en el espacio público.",
-    image: "/Enamorados.jpg",
-    year: "2023",
-    size: "6.5m x 4m"
+    title: 'Los Enamorados',
+    description: 'Una intervención íntima sobre el espacio público, donde la luz y el gesto construyen una escena profundamente humana.',
+    image: '/Enamorados.jpg',
+    year: '2023',
+    size: '6.5m × 4m',
+    type: 'Interno',
+    collection: 'Memoria',
   },
   {
-    title: "Músicos del Caribe",
-    description: "Ritmo y tradición plasmados en una explosión de color contemporánea.",
-    image: "/Musicos.jpg",
-    year: "2022",
-    size: "8m x 3.5m"
+    title: 'Músicos del Caribe',
+    description: 'Una composición rítmica que une tradición, movimiento y color en una lectura contemporánea del territorio.',
+    image: '/Musicos.jpg',
+    year: '2022',
+    size: '8m × 3.5m',
+    type: 'Externo',
+    collection: 'Ciudad',
   },
   {
-    title: "Sol Naranja",
-    description: "La energía vital del entorno capturada en un solo trazo monumental.",
-    image: "/sol naranja.jpg",
-    year: "2024",
-    size: "5m x 5m"
-  }
+    title: 'Sol Naranja',
+    description: 'La energía del paisaje se convierte en gesto monumental, con una lectura luminosa del entorno urbano.',
+    image: '/sol naranja.jpg',
+    year: '2024',
+    size: '5m × 5m',
+    type: 'Externo',
+    collection: 'Amanecer',
+  },
+  {
+    title: 'Muro de Luz',
+    description: 'Una pieza exterior que convierte la fachada en un faro de color y memoria.',
+    image: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&q=80',
+    year: '2022',
+    size: '10m × 4m',
+    type: 'Externo',
+    collection: 'Horizonte',
+  },
+  {
+    title: 'Interior de Sala',
+    description: 'Un mural pensado para interiores que transforma el espacio con detalles íntimos.',
+    image: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&q=80',
+    year: '2024',
+    size: '4m × 3m',
+    type: 'Interno',
+    collection: 'Nocturno',
+  },
 ];
 
 export default function MuralesSection() {
+  const [activeType, setActiveType] = useState<'Todos' | 'Externo' | 'Interno'>('Todos');
+  const visibleMurals = useMemo(
+    () => murales.filter((mural) => activeType === 'Todos' || mural.type === activeType),
+    [activeType]
+  );
+
   return (
-    <section id="murales" className="relative py-40 bg-black">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Header - Museum Label Style */}
-        <motion.div 
+    <section id="murales" className="relative py-24 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-32 text-center"
+          className="mb-10 max-w-3xl"
         >
-          <span className="text-yellow-500/80 uppercase tracking-[0.5em] text-xs font-bold mb-4 block">Colección Permanente</span>
-          <h2 className="text-5xl md:text-7xl font-serif font-light text-white mb-8">Intervenciones <span className="italic font-normal">Urbanas</span></h2>
-          <div className="w-px h-24 bg-gradient-to-b from-yellow-500/50 to-transparent mx-auto" />
+          <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--accent)]">Murales</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] text-white sm:text-4xl">
+            Intervenciones internas y externas para cada espacio.
+          </h2>
+          <p className="mt-4 text-base leading-7 text-white/70">
+            Elige entre murales externos e internos y explora cada colección completa con una experiencia limpia y editorial.
+          </p>
         </motion.div>
 
-        {/* Gallery Layout */}
-        <div className="space-y-64">
-          {murales.map((mural, index) => (
-            <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16 lg:gap-24`}>
-              
-              {/* Image 'Frame' */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 1 }}
-                className="w-full lg:w-3/5"
+        <div className="mb-8 rounded-[2rem] border border-white/10 bg-white/5 p-5 shadow-[0_24px_70px_-30px_rgba(0,0,0,0.85)]">
+          <div className="flex flex-wrap gap-3">
+            {muralTypes.map((type) => (
+              <button
+                key={type}
+                onClick={() => setActiveType(type)}
+                className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                  activeType === type
+                    ? 'bg-[var(--accent)] text-black shadow-[0_12px_30px_-18px_rgba(217,188,127,0.85)]'
+                    : 'bg-white/5 text-white/70 hover:bg-white/10'
+                }`}
               >
-                <div className="relative aspect-[16/10] group">
-                  {/* Subtle 'Gallery Light' effect */}
-                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-1/2 h-1/2 bg-white/5 blur-[100px] rounded-full pointer-events-none" />
-                  
-                  {/* The Frame */}
-                  <div className="relative h-full w-full p-2 bg-[#111] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] border border-white/5 overflow-hidden">
-                    <Image
-                      src={mural.image}
-                      alt={mural.title}
-                      fill
-                      className="object-cover transition-transform duration-[5s] group-hover:scale-110"
-                    />
-                  </div>
-                  
-                  {/* Corner Accents */}
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-yellow-500/30" />
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-yellow-500/30" />
-                </div>
-              </motion.div>
-
-              {/* Label Info */}
-              <motion.div 
-                initial={{ opacity: 0, x: index % 2 === 0 ? 30 : -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="w-full lg:w-2/5 space-y-6"
-              >
-                <div className="flex items-center gap-4 text-yellow-500/60 text-xs font-bold tracking-widest uppercase">
-                  <span>{mural.year}</span>
-                  <div className="w-8 h-px bg-yellow-500/20" />
-                  <span>{mural.size}</span>
-                </div>
-                
-                <h3 className="text-4xl md:text-5xl font-serif text-white leading-tight">
-                  {mural.title}
-                </h3>
-                
-                <p className="text-slate-400 text-lg font-light leading-relaxed max-w-md">
-                  {mural.description}
-                </p>
-                
-                <div className="pt-6">
-                  <div className="inline-block px-8 py-3 border border-white/10 text-white/50 text-xs uppercase tracking-widest hover:border-yellow-500/50 hover:text-white transition-all cursor-default">
-                    Ficha Técnica
-                  </div>
-                </div>
-              </motion.div>
-
-            </div>
-          ))}
+                {type}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Curator Quote */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-64 pt-32 border-t border-white/5 text-center max-w-3xl mx-auto"
-        >
-          <p className="text-2xl md:text-3xl font-serif font-light text-slate-300 italic leading-relaxed">
-            "El muralismo de Hernández transforma el caos urbano en una galería silente, donde cada pincelada reclama la dignidad de la historia local."
-          </p>
-          <div className="mt-8 flex flex-col items-center">
-             <div className="w-12 h-px bg-yellow-500 mb-4" />
-             <span className="text-yellow-500 uppercase tracking-widest text-xs font-bold">Curaduría Contemporánea</span>
-          </div>
-        </motion.div>
+        <div className="grid gap-6 lg:grid-cols-2">
+          {visibleMurals.map((mural, index) => (
+            <motion.article
+              key={mural.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: index * 0.06 }}
+              className="overflow-hidden rounded-[2rem] border border-white/10 bg-black/30 shadow-[0_24px_70px_-30px_rgba(0,0,0,0.75)]"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src={mural.image}
+                  alt={mural.title}
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--accent)]">{mural.collection}</p>
+                  <h3 className="mt-3 text-3xl font-semibold text-white">{mural.title}</h3>
+                </div>
+              </div>
+              <div className="space-y-4 p-6">
+                <div className="flex flex-wrap items-center gap-2 text-sm text-white/60">
+                  <span>{mural.year}</span>
+                  <span className="h-px w-6 bg-white/10" />
+                  <span>{mural.type}</span>
+                </div>
+                <p className="text-white/70 leading-7">{mural.description}</p>
+                <div className="flex flex-wrap gap-3">
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/60">{mural.size}</span>
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/60">Colección {mural.collection}</span>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
       </div>
     </section>
   );
