@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Gallery />
-      <MuralesSection />
       <BiografiaSection />
+      <MuralesSection />
+      <Gallery />
       <TimelineSection />
     </main>
   );
