@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: 'Ronald Hernández - Artista Pintor & Muralista',
   description: 'Descubre la obra de Ronald Hernández, pintor, muralista e historiador. Una exploracion visual donde el arte dialoga con la memoria, el territorio y la identidad',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/Logo_Ronald.ico',
   },
 };
 
