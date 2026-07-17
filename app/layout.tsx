@@ -3,7 +3,7 @@ import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import SmoothScroll from '@/components/SmoothScroll';
-import Preloader from '@/components/Preloader';
+/*import Preloader from '@/components/Preloader';*/
 
 const inter = Inter({
   subsets: ['latin'],
@@ -32,7 +32,6 @@ export default function RootLayout({
     <html lang="es" className="scroll-smooth">
       <body className={`${inter.variable} ${playfair.variable} min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased font-sans`}>
         <SmoothScroll>
-          <Preloader />
           <Navbar />
           <main>{children}</main>
           <footer className="border-t border-white/10 bg-transparent py-12">
