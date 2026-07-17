@@ -89,13 +89,13 @@ const exhibitions = [
   },
   {
     year: '2014',
-    title: 'MOMENTOS',
+    title: 'MOMENTOS2',
     location: 'Centro Comercial Buenavista, Barranquilla',
     type: 'Exhibición Individual',
   },
   {
     year: '2014',
-    title: 'MOMENTOS',
+    title: 'MOMENTOS1',
     location: 'Centro comercial Barcelona Plaza, Barranquilla',
     type: 'Exhibición Individual',
 
