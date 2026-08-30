@@ -115,6 +115,19 @@ export default function MusicPlayer() {
 
       {isOpen && (
         <div className="absolute right-0 top-14 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-white/10 bg-black/90 p-5 shadow-2xl backdrop-blur-2xl">
+          <div className="mb-4 flex items-center gap-3">
+            {currentSong?.cover && !currentSong.cover.includes('PLACEHOLDER') ? (
+              <img
+                src={currentSong.cover}
+                alt=""
+                className="h-12 w-12 rounded-lg object-cover"
+              />
+            ) : (
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--accent)]/15 text-[var(--accent)]">
+                <Music2 size={20} />
+              </div>
+            )}
+            <div className="min-w-0">
           <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/40">
             {t.music.nowPlaying}
           </p>
@@ -124,6 +137,8 @@ export default function MusicPlayer() {
           {currentSong?.artist && (
             <p className="truncate text-xs text-white/45">{currentSong.artist}</p>
           )}
+            </div>
+          </div>
           <input
             type="range"
             min="0"
