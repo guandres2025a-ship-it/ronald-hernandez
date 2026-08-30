@@ -5,6 +5,7 @@ import { ArrowRight, X, ZoomIn } from 'lucide-react';
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import { Category, Work, works } from '@/constants/works';
+import { useLanguage } from './LanguageContext';
 
 const categoryFilters: Array<Category | 'Todos'> = [
     'Cuadros',
@@ -16,6 +17,7 @@ const collectionFilters = [
 ];
 
 export default function Gallery() {
+  const { t } = useLanguage();
   const [categoryFilter, setCategoryFilter] =
     useState<Category | 'Todos'>('Todos');
 
@@ -51,20 +53,15 @@ export default function Gallery() {
           className="max-w-3xl"
         >
           <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-[var(--accent)]">
-            Obras
+            {t.gallery.worksLabel}
           </p>
 
           <h2 className="mt-4 font-serif text-4xl leading-tight text-white sm:text-5xl">
-            La pintura como memoria,
-            <br />
-            color e imaginación.
+            {t.gallery.heading}
           </h2>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-white/65">
-            Cada obra nace de una observación del territorio,
-            la historia y la experiencia humana. Esta selección
-            reúne pinturas y proyectos que dialogan con la
-            memoria colectiva desde una mirada contemporánea.
+            {t.gallery.description}
           </p>
         </motion.div>
 
@@ -83,7 +80,7 @@ export default function Gallery() {
             <div>
 
               <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.30em] text-white/45">
-                Categorías
+                {t.gallery.categories}
               </p>
 
               <div className="flex flex-wrap gap-3">
@@ -99,7 +96,7 @@ export default function Gallery() {
                         : 'border border-white/10 bg-white/5 text-white/65 hover:border-white/20 hover:bg-white/10 hover:text-white'
                     }`}
                   >
-                    {cat}
+                    {cat === 'Cuadros' ? t.gallery.paintings : cat}
                   </button>
 
                 ))}
@@ -111,7 +108,7 @@ export default function Gallery() {
             <div>
 
               <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.30em] text-white/45">
-                Colecciones
+                {t.gallery.collections}
               </p>
 
               <div className="flex flex-wrap gap-3">
@@ -129,7 +126,7 @@ export default function Gallery() {
                         : 'border border-white/10 bg-white/5 text-white/65 hover:border-white/20 hover:bg-white/10 hover:text-white'
                     }`}
                   >
-                    {collection}
+                    {collection === 'Todas' ? t.gallery.all : collection}
                   </button>
 
                 ))}

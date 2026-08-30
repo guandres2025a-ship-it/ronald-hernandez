@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
 import { ArrowRight, X } from 'lucide-react';
+import { useLanguage } from './LanguageContext';
 
 interface Mural {
   title: string;
@@ -69,6 +70,7 @@ const murales: Mural[] = [
 ];
 
 export default function MuralesSection() {
+  const { t } = useLanguage();
 
   const [selected, setSelected] = useState<Mural | null>(null);
 
@@ -92,21 +94,17 @@ export default function MuralesSection() {
     >
 
       <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[var(--accent)]">
-        Murales
+        {t.murals.title}
       </p>
 
       <h2 className="mt-5 font-serif text-5xl leading-tight text-white lg:text-6xl">
-        El espacio público
-        <br />
-        como un lienzo vivo.
+        {t.murals.publicSpace}
       </h2>
 
       <div className="mx-auto mt-8 h-px w-24 bg-[var(--accent)]" />
 
       <p className="mt-8 text-lg leading-8 text-white/70">
-        Cada intervención nace del diálogo entre la arquitectura,
-        la memoria y la identidad cultural, transformando el muro
-        en un espacio de encuentro.
+        {t.murals.description}
       </p>
 
     </motion.div>
@@ -142,7 +140,7 @@ export default function MuralesSection() {
         <div>
 
           <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--accent)]">
-            Mural destacado
+            Barrio Abajo, Barranquilla
           </p>
 
           <h3 className="mt-4 font-serif text-5xl text-white">
@@ -159,7 +157,7 @@ export default function MuralesSection() {
           onClick={() => setSelected(principal)}
           className="flex items-center gap-3 self-end rounded-full border border-white/10 bg-white px-6 py-3 font-medium text-black transition hover:bg-[var(--accent)]"
         >
-          Ver mural
+          {t.murals.viewMural}
 
           <ArrowRight size={18} />
         </button>
@@ -175,7 +173,7 @@ export default function MuralesSection() {
     <div className="mt-24">
 
       <h3 className="mb-10 font-serif text-3xl text-white">
-        Otros murales
+        {t.murals.otherMurals}
       </h3>
 
       <div className="grid gap-8 md:grid-cols-2">
@@ -273,7 +271,7 @@ export default function MuralesSection() {
                 <div className="flex flex-col justify-center p-10 lg:p-14">
 
                   <p className="text-[11px] uppercase tracking-[0.35em] text-[var(--accent)]">
-                    {selected.collection || 'Colección'}
+                    {selected.collection || t.murals.collection}
                   </p>
 
                   <h2 className="mt-4 font-serif text-5xl leading-tight text-white">

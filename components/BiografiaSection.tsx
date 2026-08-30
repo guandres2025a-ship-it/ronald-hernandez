@@ -2,14 +2,19 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useLanguage } from './LanguageContext';
 
-const stats = [
-  { value: '20+', label: 'Años de trayectoria' },
-  { value: '50+', label: 'Obras expuestas' },
-  { value: '15+', label: 'Proyectos urbanos' },
+const stats: Array<{
+  value: string;
+  key: 'careerYears' | 'exhibitedWorks' | 'urbanProjects';
+}> = [
+  { value: '20+', key: 'careerYears' },
+  { value: '50+', key: 'exhibitedWorks' },
+  { value: '15+', key: 'urbanProjects' },
 ];
 
 export default function BiografiaSection() {
+  const { t } = useLanguage();
   return (
     <section id="biografia" className="relative py-32">
       <div className="mx-auto grid max-w-7xl items-center gap-20 px-6 lg:grid-cols-[0.95fr_1.05fr]">
@@ -47,13 +52,11 @@ export default function BiografiaSection() {
           transition={{ duration: .8 }}
         >
           <p className="text-[11px] uppercase tracking-[0.35em] font-semibold text-[var(--accent)]">
-            Sobre el artista
+            {t.biography.about}
           </p>
 
           <h2 className="mt-5 font-serif text-5xl leading-[1.05] tracking-[-0.03em] text-white lg:text-6xl">
-            El arte como
-            <br />
-            testimonio del territorio
+            {t.biography.heading}
           </h2>
 
           <div className="mt-10 h-px w-24 bg-[var(--accent)] opacity-70" />
@@ -61,15 +64,11 @@ export default function BiografiaSection() {
           <div className="mt-10 space-y-7 text-lg leading-9 text-white/75">
 
             <p>
-              Formado en la Universidad del Atlántico, Ronald Hernández ha
-              dedicado más de dos décadas a investigar y representar la identidad
-              cultural del Caribe colombiano mediante la pintura y el muralismo.
+              {t.biography.paragraphOne}
             </p>
 
             <p>
-              Su trabajo une historia, memoria y expresión artística, convirtiendo
-              cada obra en un testimonio visual donde el color, la forma y el
-              territorio dialogan con quienes las contemplan.
+              {t.biography.paragraphTwo}
             </p>
 
           </div>
@@ -78,14 +77,14 @@ export default function BiografiaSection() {
 
             {stats.map((stat) => (
 
-              <div key={stat.label}>
+              <div key={stat.key}>
 
                 <p className="font-serif text-5xl text-white">
                   {stat.value}
                 </p>
 
                 <p className="mt-3 text-[11px] uppercase tracking-[0.28em] text-white/45 leading-5">
-                  {stat.label}
+                  {t.biography[stat.key]}
                 </p>
 
               </div>

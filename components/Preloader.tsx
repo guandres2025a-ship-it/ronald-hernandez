@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from './LanguageContext';
 
 export default function Preloader() {
+  const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -42,7 +44,7 @@ export default function Preloader() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-slate-400 tracking-[0.3em] text-xs sm:text-sm md:text-base font-light text-center"
             >
-              STUDIO
+              {t.preloader.studio}
             </motion.p>
           </div>
         </motion.div>

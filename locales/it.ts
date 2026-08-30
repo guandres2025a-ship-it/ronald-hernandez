@@ -1,0 +1,14 @@
+const it = {
+  nav: { home: 'Home', paintings: 'Dipinti', murals: 'Murales', biography: 'Biografia' },
+  music: { title: 'Musica', nowPlaying: 'In riproduzione', track: 'Musica di Ronald Hernández', play: 'Riproduci musica', pause: 'Metti in pausa', mute: 'Disattiva audio', unmute: 'Attiva audio', previous: 'Brano precedente', next: 'Brano successivo', stop: 'Ferma musica', volume: 'Volume', progress: 'Avanzamento del brano' },
+  language: { title: 'Lingua', current: 'Italiano' },
+  common: { explore: 'Esplora', learnMore: 'Scopri di più', viewMore: 'Vedi altro', contact: 'Contatti', year: 'Anno', technique: 'Tecnica', dimensions: 'Dimensioni' },
+  hero: { eyebrow: 'Artista · Muralista · Storico', title: 'Ronald Hernández', subtitle: 'Un’arte che conserva le storie.', description: 'Uno sguardo artistico che trasforma esperienze, memoria e territorio in opere d’arte.', exploreWorks: 'Esplora le opere', discoverArtist: 'Conosci l’artista', reflection: 'Riflessione', quote: 'Ogni opera è un frammento di memoria che resiste all’oblio.' },
+  gallery: { title: 'Dipinti', subtitle: 'Una selezione di opere che fanno parte dell’universo artistico di Ronald.', collection: 'Collezione', paintings: 'Dipinti', acrylicOnCanvas: 'Acrilico su tela', worksLabel: 'Opere', heading: 'La pittura come memoria, colore e immaginazione.', description: 'Ogni opera nasce dall’osservazione del territorio, della storia e dell’esperienza umana. Questa selezione riunisce dipinti e progetti che dialogano con la memoria collettiva.', categories: 'Categorie', collections: 'Collezioni', all: 'Tutte', close: 'Chiudi' },
+  murals: { title: 'Murales', subtitle: 'Opere di grande formato che portano l’arte negli spazi e nelle comunità.', publicSpace: 'Lo spazio pubblico come tela vivente.', description: 'Ogni intervento nasce dal dialogo tra architettura, memoria e identità culturale.', viewMural: 'Vedi murale', otherMurals: 'Altri murales', collection: 'Collezione' },
+  biography: { title: 'Biografia', subtitle: 'Scopri la storia dell’artista.', about: 'Sull’artista', heading: 'L’arte come testimonianza del territorio', paragraphOne: 'Formato presso la Universidad del Atlántico, Ronald Hernández studia e rappresenta da oltre vent’anni l’identità culturale dei Caraibi colombiani.', paragraphTwo: 'Il suo lavoro unisce storia, memoria ed espressione artistica.', careerYears: 'Anni di attività', exhibitedWorks: 'Opere esposte', urbanProjects: 'Progetti urbani' },
+  timeline: { title: 'Percorso', subtitle: 'Un viaggio attraverso i momenti che hanno formato il suo percorso artistico.', heading: 'Mostre che consolidano un’eredità contemporanea.', individual: 'Mostra personale', collective: 'Mostra collettiva' },
+  footer: { artist: 'Artista · Muralista · Storico', rights: 'Tutti i diritti riservati.' },
+  preloader: { studio: 'STUDIO' },
+};
+export default it;

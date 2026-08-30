@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useLanguage } from './LanguageContext';
 
 const exhibitions = [
   
@@ -103,6 +104,7 @@ const exhibitions = [
 ];
 
 export default function TimelineSection() {
+  const { t } = useLanguage();
   return (
     <section id="exposiciones" className="relative py-24 sm:py-28">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -112,9 +114,9 @@ export default function TimelineSection() {
           viewport={{ once: true }}
           className="mb-12 text-center"
         >
-          <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--accent)]">Trayectoria</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--accent)]">{t.timeline.title}</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] text-white sm:text-4xl">
-            Exposiciones que consolidan un legado contemporáneo.
+            {t.timeline.heading}
           </h2>
         </motion.div>
 
@@ -134,7 +136,7 @@ export default function TimelineSection() {
                 {item.year.slice(-2)}
               </div>
               <div className={`w-full rounded-[1.5rem] border border-white/10 bg-white/5 p-5 sm:max-w-[calc(50%-1.5rem)] ${index % 2 === 0 ? 'sm:ml-8' : 'sm:mr-8'}`}>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/50">{item.type}</p>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/50">{item.type.includes('personal') || item.type.includes('Individual') ? t.timeline.individual : t.timeline.collective}</p>
                 <h3 className="mt-3 text-xl font-semibold text-white">{item.title}</h3>
                 <p className="mt-2 text-white/65">{item.location}</p>
               </div>
