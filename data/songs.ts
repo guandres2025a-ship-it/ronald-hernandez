@@ -25,4 +25,18 @@ export const songs: Song[] = [
     url: './audio/I wanna love you.mp3',
     cover: 'PLACEHOLDER_RUTA_PORTADA_2',
   },
+  {
+    id: '3',    
+    title: 'I Say A Little Prayer',
+    artist: 'Aretha Franklin',
+    url: './audio/I Say A Little Prayer.mp3',
+    cover: 'PLACEHOLDER_RUTA_PORTADA_3',
+  },
+   {
+    id: '4',    
+    title: 'Alabama Song',
+    artist: 'The Doors',
+    url: './audio/Alabama Song.mp3',
+    cover: 'PLACEHOLDER_RUTA_PORTADA_4',
+  },
 ];
