@@ -34,7 +34,7 @@ const MusicPlayerContext = createContext<MusicPlayerContextValue | undefined>(
 
 export function MusicPlayerProvider({ children }: { children: ReactNode }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolumeState] = useState(0.6);
   const [progress, setProgress] = useState(0);
@@ -61,7 +61,6 @@ export function MusicPlayerProvider({ children }: { children: ReactNode }) {
     setCurrentIndex((nextIndex + songs.length) % songs.length);
     setProgress(0);
     setDuration(0);
-    setIsPlaying(false);
   };
 
   const nextSong = () => changeSong(currentIndex + 1);
