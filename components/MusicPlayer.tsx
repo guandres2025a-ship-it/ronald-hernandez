@@ -37,6 +37,35 @@ export default function MusicPlayer() {
     }
   }, [currentSong, isPlaying, setIsPlaying]);
 
+  // Try autoplay on page load. If the browser blocks sound, start playback
+  // on the visitor's first interaction anywhere on the page (not only the music button).
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const startOnFirstInteraction = () => {
+      if (!audio.paused) return;
+      void audio.play().then(() => {
+        setIsPlaying(true);
+      }).catch(() => {
+        // The browser may still require an explicit press of the Play control.
+      });
+      window.removeEventListener('pointerdown', startOnFirstInteraction);
+      window.removeEventListener('keydown', startOnFirstInteraction);
+      window.removeEventListener('touchstart', startOnFirstInteraction);
+    };
+
+    window.addEventListener('pointerdown', startOnFirstInteraction);
+    window.addEventListener('keydown', startOnFirstInteraction);
+    window.addEventListener('touchstart', startOnFirstInteraction, { passive: true });
+
+    return () => {
+      window.removeEventListener('pointerdown', startOnFirstInteraction);
+      window.removeEventListener('keydown', startOnFirstInteraction);
+      window.removeEventListener('touchstart', startOnFirstInteraction);
+    };
+  }, [setIsPlaying]);
+
   const togglePlayback = async () => {
     const audio = audioRef.current;
     if (!audio || !currentSong) return;
