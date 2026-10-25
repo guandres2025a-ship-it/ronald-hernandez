@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion';
-import { ChevronDown, Menu, Music2, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { useLanguage, type Language } from './LanguageContext';
 import MusicPlayer from './MusicPlayer';
 
@@ -56,7 +56,6 @@ export default function Navbar() {
             {navLinks.map((link) => <button key={link.key} onClick={() => scrollToSection(link.id)} className="text-sm font-medium text-white/60 transition-colors hover:text-white">{t.nav[link.key]}</button>)}
           </div>
           <div className="hidden items-center gap-2 md:flex">
-            <MusicPlayer />
             <div className="relative">
               <button type="button" onClick={() => setIsLanguageOpen((open) => !open)} className="flex h-10 items-center gap-1 rounded-full border border-white/10 bg-white/5 px-3 text-xs font-medium text-white/60 hover:bg-white/10 hover:text-white" aria-label={t.language.title}>
                 {language}<ChevronDown size={14} className={isLanguageOpen ? 'rotate-180' : ''} />
@@ -68,6 +67,7 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
           </div>
+          <div className="ml-auto mr-2 md:ml-0 md:mr-0"><MusicPlayer /></div>
           <button type="button" onClick={() => setIsOpen((open) => !open)} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 hover:bg-white/10 hover:text-white md:hidden" aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}>
             {isOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -77,7 +77,6 @@ export default function Navbar() {
         {isOpen && <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} className="mx-4 mt-3 rounded-[1.5rem] border border-white/10 bg-black/90 px-4 py-4 shadow-2xl backdrop-blur-xl md:hidden">
           <div className="space-y-1">{navLinks.map((link) => <button key={link.key} onClick={() => scrollToSection(link.id)} className="block w-full rounded-2xl px-3 py-3 text-left text-sm font-medium uppercase tracking-[0.25em] text-white/70 hover:bg-white/5 hover:text-white">{t.nav[link.key]}</button>)}</div>
           <div className="my-3 h-px bg-white/10" />
-          <div className="flex items-center gap-3 rounded-2xl bg-white/5 p-3"><Music2 size={17} className="text-[var(--accent)]" /><span className="text-xs text-white/70">{t.music.title}</span><div className="ml-auto"><MusicPlayer /></div></div>
           <div className="mt-3 grid grid-cols-4 gap-2">{languages.map((item) => <button key={item.code} type="button" onClick={() => { setLanguage(item.code); setIsOpen(false); }} className={`rounded-xl px-2 py-2 text-xs font-medium ${language === item.code ? 'bg-white text-black' : 'bg-white/5 text-white/50 hover:bg-white/10 hover:text-white'}`}>{item.code}</button>)}</div>
         </motion.div>}
       </AnimatePresence>
