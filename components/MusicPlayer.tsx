@@ -112,7 +112,10 @@ export default function MusicPlayer() {
         src={currentSong?.url}
         preload="metadata"
         onPlay={() => player.setIsPlaying(true)}
-        onPause={() => player.setIsPlaying(false)}
+        onPause={(event) => {
+          // A natural end also pauses the media element; do not treat that as a user pause.
+          if (!event.currentTarget.ended) player.setIsPlaying(false);
+        }}
         onLoadedMetadata={(event) =>
           player.setDuration(event.currentTarget.duration)
         }
@@ -124,6 +127,8 @@ export default function MusicPlayer() {
         }}
         onEnded={() => {
           player.setProgress(0);
+          // Keep playback enabled so the next track starts automatically.
+          setIsPlaying(true);
           nextSong();
         }}
       />
