@@ -48,6 +48,143 @@ const placeholderImages = [
   },
 ];
 
+
+const timelineCopy = {
+  ES: {
+    intro: 'Explora las exposiciones que han marcado el camino del artista. Selecciona un evento para abrir su galería de imágenes.',
+    journey: 'Recorrido artístico',
+    openGallery: 'Abrir galería de',
+    viewGallery: 'Ver galería de imágenes',
+    illustrative: 'Imágenes ilustrativas · selección provisional',
+    tempNote: 'Estas imágenes son ilustrativas y provisionales. Se utilizan para completar visualmente la galería; no se presentan como fotografías documentales de este evento específico.',
+    updateNote: 'La galería podrá actualizarse cuando estén disponibles las fotografías originales del evento.',
+    archive: 'Archivo de exposiciones',
+    group: 'Exposición colectiva',
+    solo: 'Exhibición personal',
+    collective: 'Exhibición colectiva',
+    close: 'Cerrar galería',
+    previousPhoto: 'Fotografía anterior',
+    nextPhoto: 'Fotografía siguiente',
+    showPhoto: 'Mostrar fotografía',
+    previousEvent: 'Evento anterior',
+    nextEvent: 'Siguiente evento',
+  },
+  EN: {
+    intro: 'Explore the exhibitions that have shaped the artist’s journey. Select any event to open its image gallery.',
+    journey: 'Artistic journey',
+    openGallery: 'Open gallery for',
+    viewGallery: 'View image gallery',
+    illustrative: 'Illustrative images · temporary selection',
+    tempNote: 'These are temporary illustrative images used to complete the visual gallery. They are not presented as documentary photographs of this specific event.',
+    updateNote: 'The gallery can be updated when original event photos become available.',
+    archive: 'Exhibition archive',
+    group: 'Group exhibition',
+    solo: 'Solo exhibition',
+    collective: 'Group exhibition',
+    close: 'Close gallery',
+    previousPhoto: 'Previous photo',
+    nextPhoto: 'Next photo',
+    showPhoto: 'Show photo',
+    previousEvent: 'Previous event',
+    nextEvent: 'Next event',
+  },
+  FR: {
+    intro: 'Découvrez les expositions qui ont marqué le parcours de l’artiste. Sélectionnez un événement pour ouvrir sa galerie d’images.',
+    journey: 'Parcours artistique',
+    openGallery: 'Ouvrir la galerie de',
+    viewGallery: 'Voir la galerie d’images',
+    illustrative: 'Images illustratives · sélection provisoire',
+    tempNote: 'Ces images sont illustratives et provisoires. Elles complètent la galerie visuelle et ne sont pas présentées comme des photos documentaires de cet événement précis.',
+    updateNote: 'La galerie pourra être mise à jour lorsque les photos originales de l’événement seront disponibles.',
+    archive: 'Archives des expositions',
+    group: 'Exposition collective',
+    solo: 'Exposition personnelle',
+    collective: 'Exposition collective',
+    close: 'Fermer la galerie',
+    previousPhoto: 'Photo précédente',
+    nextPhoto: 'Photo suivante',
+    showPhoto: 'Afficher la photo',
+    previousEvent: 'Événement précédent',
+    nextEvent: 'Événement suivant',
+  },
+  PT: {
+    intro: 'Explore as exposições que marcaram o percurso do artista. Selecione um evento para abrir sua galeria de imagens.',
+    journey: 'Trajetória artística',
+    openGallery: 'Abrir galeria de',
+    viewGallery: 'Ver galeria de imagens',
+    illustrative: 'Imagens ilustrativas · seleção provisória',
+    tempNote: 'Estas imagens são ilustrativas e provisórias. Elas complementam visualmente a galeria e não são apresentadas como registros documentais deste evento específico.',
+    updateNote: 'A galeria poderá ser atualizada quando as fotos originais do evento estiverem disponíveis.',
+    archive: 'Arquivo de exposições',
+    group: 'Exposição coletiva',
+    solo: 'Exposição individual',
+    collective: 'Exposição coletiva',
+    close: 'Fechar galeria',
+    previousPhoto: 'Foto anterior',
+    nextPhoto: 'Próxima foto',
+    showPhoto: 'Mostrar foto',
+    previousEvent: 'Evento anterior',
+    nextEvent: 'Próximo evento',
+  },
+  IT: {
+    intro: 'Esplora le mostre che hanno segnato il percorso dell’artista. Seleziona un evento per aprire la galleria di immagini.',
+    journey: 'Percorso artistico',
+    openGallery: 'Apri la galleria di',
+    viewGallery: 'Visualizza la galleria',
+    illustrative: 'Immagini illustrative · selezione provvisoria',
+    tempNote: 'Queste immagini sono illustrative e provvisorie. Completano la galleria visiva e non sono presentate come fotografie documentarie di questo evento specifico.',
+    updateNote: 'La galleria potrà essere aggiornata quando saranno disponibili le foto originali dell’evento.',
+    archive: 'Archivio delle mostre',
+    group: 'Mostra collettiva',
+    solo: 'Mostra personale',
+    collective: 'Mostra collettiva',
+    close: 'Chiudi la galleria',
+    previousPhoto: 'Foto precedente',
+    nextPhoto: 'Foto successiva',
+    showPhoto: 'Mostra foto',
+    previousEvent: 'Evento precedente',
+    nextEvent: 'Evento successivo',
+  },
+  DE: {
+    intro: 'Entdecke Ausstellungen, die den künstlerischen Weg geprägt haben. Wähle ein Ereignis aus, um die Bildergalerie zu öffnen.',
+    journey: 'Künstlerischer Werdegang',
+    openGallery: 'Galerie öffnen für',
+    viewGallery: 'Bildergalerie ansehen',
+    illustrative: 'Beispielbilder · vorläufige Auswahl',
+    tempNote: 'Diese Bilder sind vorläufige Illustrationen zur visuellen Ergänzung der Galerie. Sie werden nicht als dokumentarische Fotos dieser konkreten Veranstaltung dargestellt.',
+    updateNote: 'Die Galerie kann aktualisiert werden, sobald Originalfotos der Veranstaltung vorliegen.',
+    archive: 'Ausstellungsarchiv',
+    group: 'Gruppenausstellung',
+    solo: 'Einzelausstellung',
+    collective: 'Gruppenausstellung',
+    close: 'Galerie schließen',
+    previousPhoto: 'Vorheriges Foto',
+    nextPhoto: 'Nächstes Foto',
+    showPhoto: 'Foto anzeigen',
+    previousEvent: 'Vorherige Veranstaltung',
+    nextEvent: 'Nächste Veranstaltung',
+  },
+  JA: {
+    intro: 'アーティストの歩みを形づくった展覧会をご覧ください。イベントを選ぶと画像ギャラリーが開きます。',
+    journey: '芸術の歩み',
+    openGallery: 'ギャラリーを開く：',
+    viewGallery: '画像ギャラリーを見る',
+    illustrative: 'イメージ画像・暫定セレクション',
+    tempNote: 'これらはギャラリーを補うための暫定的なイメージ画像です。該当イベントの記録写真として掲載しているものではありません。',
+    updateNote: 'イベントのオリジナル写真が用意でき次第、ギャラリーを更新できます。',
+    archive: '展覧会アーカイブ',
+    group: 'グループ展',
+    solo: '個展',
+    collective: 'グループ展',
+    close: 'ギャラリーを閉じる',
+    previousPhoto: '前の写真',
+    nextPhoto: '次の写真',
+    showPhoto: '写真を表示',
+    previousEvent: '前のイベント',
+    nextEvent: '次のイベント',
+  },
+} as const;
+
 const exhibitions: Exhibition[] = [
   { year: '2025', title: 'MUJER: MIRADAS Y MATICES', location: 'Aduana de Barranquilla', type: 'Exhibición personal', cover: 0 },
   { year: '2024', title: 'V BIENAL INTERNACIONAL DE ARTE BLANCO', location: 'Bogotá D. C.', type: 'Exhibición colectiva', cover: 1 },
@@ -71,7 +208,7 @@ export default function TimelineSection() {
   const { t, language } = useLanguage();
   const [activeExhibition, setActiveExhibition] = useState<number | null>(null);
   const [activePhoto, setActivePhoto] = useState(0);
-  const isEnglish = language === 'EN';
+  const copy = timelineCopy[language];
 
   const activeItem = activeExhibition === null ? null : exhibitions[activeExhibition];
   const gallery = activeExhibition === null
@@ -113,13 +250,11 @@ export default function TimelineSection() {
             {t.timeline.heading}
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">
-            {isEnglish
-              ? 'Explore the exhibitions that have shaped the artist’s journey. Select any event to open its image gallery.'
-              : 'Explora las exposiciones que han marcado el camino del artista. Selecciona un evento para abrir su galería de imágenes.'}
+            {copy.intro}
           </p>
           <div className="mx-auto mt-7 flex items-center justify-center gap-2 text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--accent)]/80">
             <span className="h-px w-8 bg-[var(--accent)]/40" />
-            {isEnglish ? 'Artistic journey' : 'Recorrido artístico'}
+            {copy.journey}
             <span className="h-px w-8 bg-[var(--accent)]/40" />
           </div>
         </motion.div>
@@ -130,7 +265,7 @@ export default function TimelineSection() {
             {exhibitions.map((item, index) => {
               const isLeft = index % 2 === 0;
               const isIndividual = item.type === 'Exhibición personal';
-              const title = item.title || (isEnglish ? 'Group exhibition' : 'Exposición colectiva');
+              const title = item.title || copy.group;
               return (
                 <motion.div
                   key={`${item.year}-${item.title}-${item.location}-${index}`}
@@ -146,7 +281,7 @@ export default function TimelineSection() {
                   <button
                     type="button"
                     onClick={() => { setActiveExhibition(index); setActivePhoto(0); }}
-                    aria-label={`${isEnglish ? 'Open gallery for' : 'Abrir galería de'} ${title}, ${item.year}`}
+                    aria-label={`${copy.openGallery} ${title}, ${item.year}`}
                     className="group w-full overflow-hidden rounded-[1.6rem] border border-white/[0.09] bg-[#101118] text-left shadow-[0_18px_60px_rgba(0,0,0,0.16)] transition duration-500 hover:-translate-y-1 hover:border-[var(--accent)]/45 hover:shadow-[0_24px_70px_rgba(0,0,0,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
                   >
                     <div className="relative h-48 overflow-hidden sm:h-56">
@@ -176,11 +311,11 @@ export default function TimelineSection() {
                         <span>{item.location}</span>
                       </div>
                       <div className="mt-5 flex items-center justify-between border-t border-white/[0.08] pt-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--accent)]/90">
-                        <span>{isEnglish ? 'View image gallery' : 'Ver galería de imágenes'}</span>
+                        <span>{copy.viewGallery}</span>
                         <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                       </div>
                       <p className="mt-3 text-[10px] leading-5 text-white/35">
-                        {isEnglish ? 'Illustrative images · temporary selection' : 'Imágenes ilustrativas · selección provisional'}
+                        {copy.illustrative}
                       </p>
                     </div>
                   </button>
@@ -213,7 +348,7 @@ export default function TimelineSection() {
               <button
                 type="button"
                 onClick={closeGallery}
-                aria-label={isEnglish ? 'Close gallery' : 'Cerrar galería'}
+                aria-label={copy.close}
                 className="absolute right-3 top-3 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/50 text-white backdrop-blur-md transition hover:border-[var(--accent)] hover:text-[var(--accent)] sm:right-5 sm:top-5"
               >
                 <X size={19} />
@@ -236,7 +371,7 @@ export default function TimelineSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10" />
                   <button
                     type="button"
-                    aria-label={isEnglish ? 'Previous photo' : 'Fotografía anterior'}
+                    aria-label={copy.previousPhoto}
                     onClick={() => setActivePhoto((current) => (current + 2) % 3)}
                     className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-black/35 text-white backdrop-blur-md transition hover:bg-[var(--accent)] hover:text-black sm:left-5"
                   >
@@ -244,7 +379,7 @@ export default function TimelineSection() {
                   </button>
                   <button
                     type="button"
-                    aria-label={isEnglish ? 'Next photo' : 'Fotografía siguiente'}
+                    aria-label={copy.nextPhoto}
                     onClick={() => setActivePhoto((current) => (current + 1) % 3)}
                     className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-black/35 text-white backdrop-blur-md transition hover:bg-[var(--accent)] hover:text-black sm:right-5"
                   >
@@ -256,7 +391,7 @@ export default function TimelineSection() {
                         type="button"
                         key={photo.src}
                         onClick={() => setActivePhoto(photoIndex)}
-                        aria-label={`${isEnglish ? 'Show photo' : 'Mostrar fotografía'} ${photoIndex + 1}`}
+                        aria-label={`${copy.showPhoto} ${photoIndex + 1}`}
                         className={`h-1.5 rounded-full transition-all ${photoIndex === activePhoto ? 'w-8 bg-[var(--accent)]' : 'w-3 bg-white/50 hover:bg-white'}`}
                       />
                     ))}
@@ -268,7 +403,7 @@ export default function TimelineSection() {
 
                 <div className="flex flex-col justify-center p-6 sm:p-9 md:p-10">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--accent)]">
-                    {isEnglish ? 'Exhibition archive' : 'Archivo de exposiciones'}
+                    {copy.archive}
                   </p>
                   <h3 id="exhibition-modal-title" className="mt-4 pr-7 text-2xl font-semibold leading-tight text-white sm:text-3xl">
                     {activeItem.title || (isEnglish ? 'Group exhibition' : 'Exposición colectiva')}
@@ -276,7 +411,7 @@ export default function TimelineSection() {
                   <div className="mt-6 space-y-4 text-sm text-white/65">
                     <p className="flex items-center gap-3">
                       <CalendarDays size={17} className="shrink-0 text-[var(--accent)]" />
-                      <span>{activeItem.year} · {isEnglish ? (activeItem.type === 'Exhibición personal' ? 'Solo exhibition' : 'Group exhibition') : activeItem.type}</span>
+                      <span>{activeItem.year} · {activeItem.type === 'Exhibición personal' ? copy.solo : copy.collective}</span>
                     </p>
                     <p className="flex items-start gap-3 leading-6">
                       <MapPin size={17} className="mt-0.5 shrink-0 text-[var(--accent)]" />
@@ -285,12 +420,10 @@ export default function TimelineSection() {
                   </div>
                   <div className="mt-7 border-t border-white/10 pt-5">
                     <p className="text-sm leading-6 text-white/55">
-                      {isEnglish
-                        ? 'These are temporary illustrative images used to complete the visual gallery. They are not presented as documentary photographs of this specific event.'
-                        : 'Estas imágenes son ilustrativas y provisionales. Se utilizan para completar visualmente la galería; no se presentan como fotografías documentales de este evento específico.'}
+                      {copy.tempNote}
                     </p>
                     <p className="mt-3 text-xs leading-5 text-white/35">
-                      {isEnglish ? 'The gallery can be updated when original event photos become available.' : 'La galería podrá actualizarse cuando estén disponibles las fotografías originales del evento.'}
+                      {copy.updateNote}
                     </p>
                   </div>
                   <div className="mt-8 flex items-center justify-between gap-3">
@@ -299,14 +432,14 @@ export default function TimelineSection() {
                       onClick={() => { setActiveExhibition((activeExhibition - 1 + exhibitions.length) % exhibitions.length); setActivePhoto(0); }}
                       className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-xs font-medium text-white/75 transition hover:border-[var(--accent)]/50 hover:text-[var(--accent)]"
                     >
-                      <ArrowLeft size={14} /> {isEnglish ? 'Previous event' : 'Evento anterior'}
+                      <ArrowLeft size={14} /> {copy.previousEvent}
                     </button>
                     <button
                       type="button"
                       onClick={() => { setActiveExhibition((activeExhibition + 1) % exhibitions.length); setActivePhoto(0); }}
                       className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2.5 text-xs font-semibold text-black transition hover:bg-[var(--accent-hover)]"
                     >
-                      {isEnglish ? 'Next event' : 'Siguiente evento'} <ArrowRight size={14} />
+                      {copy.nextEvent} <ArrowRight size={14} />
                     </button>
                   </div>
                 </div>
