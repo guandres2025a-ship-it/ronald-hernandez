@@ -59,3 +59,10 @@ body {
   background: rgba(217, 188, 127, 0.35);
   color: white;
 }
+
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+}

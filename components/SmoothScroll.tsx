@@ -5,6 +5,11 @@ import Lenis from 'lenis';
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // Leave native scrolling in place for visitors who request reduced motion.
+    if (motionPreference.matches) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -14,14 +19,17 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       touchMultiplier: 2,
     });
 
+    let frameId = 0;
+
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      frameId = window.requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    frameId = window.requestAnimationFrame(raf);
 
     return () => {
+      window.cancelAnimationFrame(frameId);
       lenis.destroy();
     };
   }, []);
