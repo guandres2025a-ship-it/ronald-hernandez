@@ -406,7 +406,7 @@ export default function TimelineSection() {
                     {copy.archive}
                   </p>
                   <h3 id="exhibition-modal-title" className="mt-4 pr-7 text-2xl font-semibold leading-tight text-white sm:text-3xl">
-                    {activeItem.title || (isEnglish ? 'Group exhibition' : 'Exposición colectiva')}
+                    {activeItem.title || copy.group}
                   </h3>
                   <div className="mt-6 space-y-4 text-sm text-white/65">
                     <p className="flex items-center gap-3">
