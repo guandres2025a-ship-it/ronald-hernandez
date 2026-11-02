@@ -22,6 +22,15 @@ export default function MusicPlayer() {
   const { currentSong, isPlaying, setIsPlaying, nextSong } = player;
 
   useEffect(() => {
+    if (!isOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false);
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [isOpen]);
+
+  useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
     audio.volume = player.volume;
@@ -142,13 +151,15 @@ export default function MusicPlayer() {
             : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10 hover:text-white'
         }`}
         aria-label={t.music.title}
+        aria-expanded={isOpen}
+        aria-controls="music-player-panel"
       >
         <Music2 size={16} className={player.isPlaying ? 'animate-pulse' : ''} />
         <span className="hidden lg:inline">{t.music.title}</span>
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 top-14 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-white/10 bg-black/90 p-5 shadow-2xl backdrop-blur-2xl">
+        <div id="music-player-panel" className="absolute right-0 top-14 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-white/10 bg-black/90 p-5 shadow-2xl backdrop-blur-2xl">
           <div className="mb-4 flex items-center gap-3">
             {currentSong?.cover && !currentSong.cover.includes('PLACEHOLDER') ? (
               <img
