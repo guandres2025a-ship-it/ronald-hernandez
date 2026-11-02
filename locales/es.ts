@@ -53,6 +53,8 @@ const es = {
     title: 'Cuadros',
     subtitle: 'Una selección de obras que forman parte del universo artístico de Ronald.',
     collection: 'Colección',
+    addressLabel: 'Dirección',
+    openMap: 'Abrir ubicación',
     paintings: 'Cuadros',
     acrylicOnCanvas: 'Acrílico sobre lienzo',
     worksLabel: 'Obras',
@@ -97,6 +99,9 @@ const es = {
   footer: {
     artist: 'Artista · Muralista · Historiador',
     rights: 'Todos los derechos reservados.',
+    atelierTitle: 'Visita el atelier',
+    atelierDescription: 'Un espacio de creación y encuentro con el universo artístico de Ronald Hernández.',
+    getDirections: 'Cómo llegar',
   },
   preloader: { studio: 'ESTUDIO' },
 };
