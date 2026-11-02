@@ -39,8 +39,10 @@ export default function Navbar() {
   }, []);
 
   const scrollToSection = (id: string) => {
-    if (id) document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    else window.scrollTo({ top: 0, behavior: 'smooth' });
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const behavior: ScrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+    if (id) document.getElementById(id)?.scrollIntoView({ behavior, block: 'start' });
+    else window.scrollTo({ top: 0, behavior });
     window.history.replaceState({}, '', window.location.pathname);
     setIsOpen(false);
   };
@@ -57,24 +59,24 @@ export default function Navbar() {
           </div>
           <div className="hidden items-center gap-2 md:flex">
             <div className="relative">
-              <button type="button" onClick={() => setIsLanguageOpen((open) => !open)} className="flex h-10 items-center gap-1 rounded-full border border-white/10 bg-white/5 px-3 text-xs font-medium text-white/60 hover:bg-white/10 hover:text-white" aria-label={t.language.title}>
+              <button type="button" onClick={() => setIsLanguageOpen((open) => !open)} aria-expanded={isLanguageOpen} aria-controls="desktop-language-menu" className="flex h-10 items-center gap-1 rounded-full border border-white/10 bg-white/5 px-3 text-xs font-medium text-white/60 hover:bg-white/10 hover:text-white" aria-label={t.language.title}>
                 {language}<ChevronDown size={14} className={isLanguageOpen ? 'rotate-180' : ''} />
               </button>
               <AnimatePresence>
-                {isLanguageOpen && <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="absolute right-0 top-14 w-44 overflow-hidden rounded-2xl border border-white/10 bg-black/90 p-2 shadow-2xl backdrop-blur-2xl">
+                {isLanguageOpen && <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} id="desktop-language-menu" className="absolute right-0 top-14 w-44 overflow-hidden rounded-2xl border border-white/10 bg-black/90 p-2 shadow-2xl backdrop-blur-2xl">
                   {languages.map((item) => <button key={item.code} type="button" onClick={() => { setLanguage(item.code); setIsLanguageOpen(false); }} className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-xs ${language === item.code ? 'bg-white/10 text-white' : 'text-white/50 hover:bg-white/5 hover:text-white'}`}><span>{item.name}</span><span className="text-[10px] text-white/30">{item.code}</span></button>)}
                 </motion.div>}
               </AnimatePresence>
             </div>
           </div>
           <div className="ml-auto mr-2 md:ml-0 md:mr-0"><MusicPlayer /></div>
-          <button type="button" onClick={() => setIsOpen((open) => !open)} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 hover:bg-white/10 hover:text-white md:hidden" aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}>
+          <button type="button" onClick={() => setIsOpen((open) => !open)} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 hover:bg-white/10 hover:text-white md:hidden" aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={isOpen} aria-controls="mobile-navigation">
             {isOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </div>
       <AnimatePresence>
-        {isOpen && <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} className="mx-4 mt-3 rounded-[1.5rem] border border-white/10 bg-black/90 px-4 py-4 shadow-2xl backdrop-blur-xl md:hidden">
+        {isOpen && <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} id="mobile-navigation" className="mx-4 mt-3 rounded-[1.5rem] border border-white/10 bg-black/90 px-4 py-4 shadow-2xl backdrop-blur-xl md:hidden">
           <div className="space-y-1">{navLinks.map((link) => <button key={link.key} onClick={() => scrollToSection(link.id)} className="block w-full rounded-2xl px-3 py-3 text-left text-sm font-medium uppercase tracking-[0.25em] text-white/70 hover:bg-white/5 hover:text-white">{t.nav[link.key]}</button>)}</div>
           <div className="my-3 h-px bg-white/10" />
           <div className="mt-3 grid grid-cols-4 gap-2">{languages.map((item) => <button key={item.code} type="button" onClick={() => { setLanguage(item.code); setIsOpen(false); }} className={`rounded-xl px-2 py-2 text-xs font-medium ${language === item.code ? 'bg-white text-black' : 'bg-white/5 text-white/50 hover:bg-white/10 hover:text-white'}`}>{item.code}</button>)}</div>
