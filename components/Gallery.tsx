@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowDownRight, ArrowRight, X, ZoomIn } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Category, Work, works } from '@/constants/works';
 import { useLanguage } from './LanguageContext';
 
@@ -19,6 +19,9 @@ export default function Gallery() {
   const [categoryFilter, setCategoryFilter] = useState<Category | 'Todos'>('Todos');
   const [collectionFilter, setCollectionFilter] = useState('Todas');
   const [selectedWork, setSelectedWork] = useState<Work | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
 
   const filteredWorks = useMemo(
     () =>
@@ -36,8 +39,29 @@ export default function Gallery() {
   useEffect(() => {
     if (!selectedWork) return;
 
+    closeButtonRef.current?.focus();
+
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setSelectedWork(null);
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setSelectedWork(null);
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), a[href], input:not([disabled]), [tabindex]:not([tabindex=\"-1\"])',
+      );
+      if (!focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
 
     document.addEventListener('keydown', handleKeyDown);
@@ -46,6 +70,7 @@ export default function Gallery() {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
+      openerRef.current?.focus();
     };
   }, [selectedWork]);
 
@@ -152,7 +177,7 @@ export default function Gallery() {
             >
               <motion.button
                 type="button"
-                onClick={() => setSelectedWork(featuredWork)}
+                onClick={(event) => { openerRef.current = event.currentTarget; setSelectedWork(featuredWork); }}
                 aria-label={`${t.common.explore}: ${featuredWork.title}`}
                 initial={{ opacity: 0, y: 22 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -236,7 +261,7 @@ export default function Gallery() {
                       >
                         <button
                           type="button"
-                          onClick={() => setSelectedWork(work)}
+                          onClick={(event) => { openerRef.current = event.currentTarget; setSelectedWork(work); }}
                           aria-label={`${t.common.explore}: ${work.title}`}
                           className="block w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"
                         >
@@ -300,6 +325,7 @@ export default function Gallery() {
           >
             <button
               type="button"
+              ref={closeButtonRef}
               aria-label={t.gallery.close}
               onClick={() => setSelectedWork(null)}
               className="absolute right-4 top-4 z-50 rounded-full border border-white/15 bg-black/50 p-3 text-white/80 transition-all hover:border-[var(--accent)] hover:text-[var(--accent)] sm:right-7 sm:top-7"
@@ -310,6 +336,7 @@ export default function Gallery() {
             <motion.div
               layoutId={`image-${selectedWork.id}`}
               onClick={(event) => event.stopPropagation()}
+              ref={dialogRef}
               role="dialog"
               aria-modal="true"
               aria-label={selectedWork.title}
