@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, Music2, X } from 'lucide-react';
 import { useLanguage, type Language } from './LanguageContext';
 import MusicPlayer from './MusicPlayer';
+import { useMusicPlayer } from './MusicPlayerContext';
 
 const navLinks = [
   { key: 'home', id: '' },
@@ -25,6 +26,7 @@ const languages: { code: Language; name: string }[] = [
 
 export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
+  const { currentSong, isPlaying } = useMusicPlayer();
   const [isOpen, setIsOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -50,6 +52,13 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 z-50 w-full transition-all duration-500 ${scrolled ? 'pt-3' : 'pt-0'}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-center pb-2 pt-2">
+          <div className="flex max-w-[min(92vw,28rem)] items-center gap-2 rounded-full border border-white/10 bg-black/55 px-4 py-1.5 shadow-lg backdrop-blur-xl" aria-live="polite" aria-atomic="true">
+            <Music2 size={12} className={isPlaying ? 'animate-pulse text-[var(--accent)]' : 'text-white/45'} />
+            <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-white/40">{t.music.nowPlaying}</span>
+            <span className="max-w-[13rem] truncate text-[11px] font-medium text-white/90 sm:max-w-[19rem]">{currentSong?.title || t.music.track}</span>
+          </div>
+        </div>
         <div className={`relative flex items-center justify-between rounded-full border border-white/10 px-4 py-3 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.9)] backdrop-blur-xl ${scrolled ? 'bg-black/70' : 'bg-black/30'}`}>
           <button onClick={() => scrollToSection('')} className="shrink-0 text-sm font-semibold uppercase tracking-[0.3em] text-white/90 hover:opacity-80">
             Ronald <span className="text-[var(--accent)]">Hernández</span>
