@@ -156,14 +156,6 @@ export default function MusicPlayer() {
       >
         <Music2 size={16} className={player.isPlaying ? 'animate-pulse' : ''} />
         <span className="hidden lg:inline">{t.music.title}</span>
-        <span
-          className="max-w-[6.5rem] truncate text-[10px] font-medium text-white/75 sm:max-w-[9rem] lg:max-w-[12rem]"
-          title={currentSong?.title || t.music.track}
-          aria-live="polite"
-          aria-atomic="true"
-        >
-          {currentSong?.title || t.music.track}
-        </span>
       </button>
 
       {isOpen && (
