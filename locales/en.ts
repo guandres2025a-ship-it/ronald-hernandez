@@ -61,7 +61,7 @@ const en = {
   murals: {
     title: 'Murals',
     subtitle: 'Large-scale works that bring art into spaces and communities.',
-    publicSpace: 'Public space as a living canvas.', description: 'Each intervention grows from a dialogue between architecture, memory, and cultural identity, transforming the wall into a meeting place.', viewMural: 'View mural', otherMurals: 'Other murals', collection: 'Collection',
+    publicSpace: 'Public space as a living canvas.', description: 'Each intervention grows from a dialogue between architecture, memory, and cultural identity, transforming the wall into a meeting place.', viewMural: 'View mural', otherMurals: 'Other murals', collection: 'Collection', addressLabel: 'Address', openMap: 'Open location',
   },
 
   biography: {
@@ -78,7 +78,7 @@ const en = {
 
   footer: {
     artist: 'Artist · Muralist · Historian',
-    rights: 'All rights reserved.',
+    rights: 'All rights reserved.', atelierTitle: 'Visit the studio', atelierDescription: 'A space for creation and discovery of Ronald Hernández’s artistic world.', getDirections: 'Get directions',
   },
   preloader: { studio: 'STUDIO' },
 };
