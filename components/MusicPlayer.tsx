@@ -150,12 +150,20 @@ export default function MusicPlayer() {
             ? 'border-white/20 bg-white/10 text-white'
             : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10 hover:text-white'
         }`}
-        aria-label={t.music.title}
+        aria-label={`${t.music.title}: ${currentSong?.title || t.music.track}`}
         aria-expanded={isOpen}
         aria-controls="music-player-panel"
       >
         <Music2 size={16} className={player.isPlaying ? 'animate-pulse' : ''} />
         <span className="hidden lg:inline">{t.music.title}</span>
+        <span
+          className="max-w-[6.5rem] truncate text-[10px] font-medium text-white/75 sm:max-w-[9rem] lg:max-w-[12rem]"
+          title={currentSong?.title || t.music.track}
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          {currentSong?.title || t.music.track}
+        </span>
       </button>
 
       {isOpen && (
