@@ -15,6 +15,7 @@ interface Mural {
   type: string;
   collection: string;
   location: string;
+  address: string;
 }
 
 const murales: Mural[] = [
@@ -28,6 +29,7 @@ const murales: Mural[] = [
     type: 'Exterior',
     collection: 'Museo a Cielo Abierto Barrio Abajo, Barranquilla',
     location: 'Barrio Abajo · Barranquilla',
+    address: 'Carrera 42 C, Norte Centro Histórico, Barranquilla, Atlántico, Colombia',
   },
   {
     title: 'Ofelia Invita',
@@ -39,8 +41,12 @@ const murales: Mural[] = [
     type: 'Exterior',
     collection: 'Malecón de Rebolo',
     location: 'Rebolo · Barranquilla',
+    address: 'Cra. 23 #29, Sur Oriente, Barranquilla, Atlántico, Colombia',
   },
 ];
+
+const getMapsUrl = (address: string) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
 export default function MuralesSection() {
   const { t } = useLanguage();
@@ -147,6 +153,15 @@ export default function MuralesSection() {
             </div>
           </div>
         </motion.article>
+        <div className="mt-4 flex flex-col gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-7">
+          <div>
+            <p className="text-[9px] uppercase tracking-[0.24em] text-[var(--accent)]">{t.murals.addressLabel}</p>
+            <p className="mt-1 text-sm leading-6 text-white/65">{principal.address}</p>
+          </div>
+          <a href={getMapsUrl(principal.address)} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)] transition-colors hover:text-white">
+            {t.murals.openMap} <ArrowRight size={14} />
+          </a>
+        </div>
 
         <div className="mt-16 sm:mt-24">
           <div className="mb-8 flex items-end justify-between gap-5 sm:mb-10">
@@ -213,6 +228,12 @@ export default function MuralesSection() {
                     <span className="shrink-0 pt-1 text-xs text-white/40">{mural.size}</span>
                   </div>
                 </button>
+                <div className="mt-4 flex flex-col gap-2 px-1 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-xs leading-5 text-white/45">{mural.address}</p>
+                  <a href={getMapsUrl(mural.address)} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--accent)] transition-colors hover:text-white">
+                    {t.murals.openMap} <ArrowRight size={13} />
+                  </a>
+                </div>
               </motion.article>
             ))}
           </div>
@@ -271,6 +292,10 @@ export default function MuralesSection() {
                     <MapPin size={14} className="text-[var(--accent)]" />
                     {selected.location}
                   </p>
+                  <p className="mt-3 text-sm leading-6 text-white/55">{selected.address}</p>
+                  <a href={getMapsUrl(selected.address)} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex w-fit items-center gap-2 border-b border-[var(--accent)]/60 pb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)] transition-colors hover:text-white">
+                    {t.murals.openMap} <ArrowRight size={14} />
+                  </a>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {[selected.year, selected.size, selected.type].filter(Boolean).map((detail) => (
                       <span key={detail} className="rounded-full border border-white/15 px-3 py-2 text-xs text-white/65">
