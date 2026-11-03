@@ -53,8 +53,6 @@ const es = {
     title: 'Cuadros',
     subtitle: 'Una selección de obras que forman parte del universo artístico de Ronald.',
     collection: 'Colección',
-    addressLabel: 'Dirección',
-    openMap: 'Abrir ubicación',
     paintings: 'Cuadros',
     acrylicOnCanvas: 'Acrílico sobre lienzo',
     worksLabel: 'Obras',
