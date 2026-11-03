@@ -44,6 +44,18 @@ const murales: Mural[] = [
     address: 'Cra. 23 #29, Sur Oriente, Barranquilla, Atlántico, Colombia',
   },
   {
+    title: "Lokassa Ya M'Bongo",
+    description:
+      'Un homenaje a Lokassa Ya M\'Bongo, legendario guitarrista congoleño cuya música contribuyó a llevar los sonidos de África más allá de sus fronteras. Su inconfundible estilo, marcado por las guitarras brillantes y los ritmos del soukous, representa el encuentro entre culturas y la fuerza universal de la música.',
+    image: "/Murales/Lokassa Ya M'Bongo.jpeg",
+    year: 's. f.',
+    size: '—',
+    type: 'Exterior',
+    collection: 'Malecón de Rebolo',
+    location: 'Rebolo · Barranquilla',
+    address: 'Cra. 23 #29, Sur Oriente, Barranquilla, Atlántico, Colombia',
+  },
+  {
     title: 'Encallé en Puerto Seguro',
     description:
       'Inspirado en El David Arango, el vapor más grande y lujoso del Magdalena. El artista lo representa entrando por el arco del Hotel El Prado, simbolizando la llegada de inmigrantes. El cielo rojo evoca el caos que dejaban atrás.',
