@@ -74,6 +74,8 @@ const es = {
     viewMural: 'Ver mural',
     otherMurals: 'Otros murales',
     collection: 'Colección',
+    addressLabel: 'Dirección',
+    openMap: 'Abrir ubicación',
   },
 
   biography: {
