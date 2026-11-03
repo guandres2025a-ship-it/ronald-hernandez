@@ -43,6 +43,18 @@ const murales: Mural[] = [
     location: 'Rebolo · Barranquilla',
     address: 'Cra. 23 #29, Sur Oriente, Barranquilla, Atlántico, Colombia',
   },
+  {
+    title: 'Encallé en Puerto Seguro',
+    description:
+      'Inspirado en El David Arango, el vapor más grande y lujoso del Magdalena. El artista lo representa entrando por el arco del Hotel El Prado, simbolizando la llegada de inmigrantes. El cielo rojo evoca el caos que dejaban atrás.',
+    image: '/Murales/Encalle_en_puerto_seguro.webp',
+    year: 's. f.',
+    size: '—',
+    type: 'Exterior',
+    collection: 'Barrio El Prado',
+    location: 'El Prado · Barranquilla',
+    address: 'Cra. 58 #64-206, Barranquilla, Atlántico, Colombia',
+  },
 ];
 
 const getMapsUrl = (address: string) =>
@@ -167,14 +179,14 @@ export default function MuralesSection() {
           <div className="mb-8 flex items-end justify-between gap-5 sm:mb-10">
             <div>
               <p className="mb-3 text-[10px] uppercase tracking-[0.3em] text-[var(--accent)]">
-                02 / Colección
+                03 / Colección
               </p>
               <h3 className="font-serif text-3xl text-white sm:text-4xl">
                 {t.murals.otherMurals}
               </h3>
             </div>
             <span className="hidden text-xs tracking-[0.18em] text-white/40 sm:block">
-              02 OBRAS
+              {String(murales.length).padStart(2, '0')} OBRAS
             </span>
           </div>
 
