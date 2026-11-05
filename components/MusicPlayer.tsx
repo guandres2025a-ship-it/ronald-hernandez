@@ -19,6 +19,7 @@ export default function MusicPlayer() {
   const player = useMusicPlayer();
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [showMobilePrompt, setShowMobilePrompt] = useState(false);
   const { currentSong, isPlaying, setIsPlaying, nextSong } = player;
 
   useEffect(() => {
@@ -37,43 +38,33 @@ export default function MusicPlayer() {
     audio.muted = player.isMuted;
   }, [player.volume, player.isMuted]);
 
+  // Keep desktop autoplay. On touch devices, offer a clear one-tap entry
+  // when the browser rejects autoplay with sound.
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio || !currentSong) return;
     audio.load();
     if (isPlaying) {
-      void audio.play().catch(() => setIsPlaying(false));
+      void audio.play().catch(() => {
+        setIsPlaying(false);
+        if (window.matchMedia('(pointer: coarse)').matches) {
+          setShowMobilePrompt(true);
+        }
+      });
     }
   }, [currentSong, isPlaying, setIsPlaying]);
 
-  // Try autoplay on page load. If the browser blocks sound, start playback
-  // on the visitor's first interaction anywhere on the page (not only the music button).
-  useEffect(() => {
+  const startMusicFromPrompt = async () => {
     const audio = audioRef.current;
-    if (!audio) return;
-
-    const startOnFirstInteraction = () => {
-      if (!audio.paused) return;
-      void audio.play().then(() => {
-        setIsPlaying(true);
-      }).catch(() => {
-        // The browser may still require an explicit press of the Play control.
-      });
-      window.removeEventListener('pointerdown', startOnFirstInteraction);
-      window.removeEventListener('keydown', startOnFirstInteraction);
-      window.removeEventListener('touchstart', startOnFirstInteraction);
-    };
-
-    window.addEventListener('pointerdown', startOnFirstInteraction);
-    window.addEventListener('keydown', startOnFirstInteraction);
-    window.addEventListener('touchstart', startOnFirstInteraction, { passive: true });
-
-    return () => {
-      window.removeEventListener('pointerdown', startOnFirstInteraction);
-      window.removeEventListener('keydown', startOnFirstInteraction);
-      window.removeEventListener('touchstart', startOnFirstInteraction);
-    };
-  }, [setIsPlaying]);
+    if (!audio || !currentSong) return;
+    try {
+      await audio.play();
+      setIsPlaying(true);
+      setShowMobilePrompt(false);
+    } catch {
+      setIsPlaying(false);
+    }
+  };
 
   const togglePlayback = async () => {
     const audio = audioRef.current;
@@ -120,7 +111,10 @@ export default function MusicPlayer() {
         ref={audioRef}
         src={currentSong?.url}
         preload="metadata"
-        onPlay={() => player.setIsPlaying(true)}
+        onPlay={() => {
+          player.setIsPlaying(true);
+          setShowMobilePrompt(false);
+        }}
         onPause={(event) => {
           // A natural end also pauses the media element; do not treat that as a user pause.
           if (!event.currentTarget.ended) player.setIsPlaying(false);
@@ -141,6 +135,31 @@ export default function MusicPlayer() {
           nextSong();
         }}
       />
+
+      {showMobilePrompt && (
+        <div className="fixed inset-x-4 bottom-5 z-[60] flex justify-center">
+          <div className="flex w-full max-w-sm items-center gap-3 rounded-2xl border border-white/15 bg-black/90 p-3 shadow-2xl backdrop-blur-xl">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--accent)]/15 text-[var(--accent)]">
+              <Music2 size={18} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="text-xs font-medium text-white">{t.music.tapToStart}</p>
+              <p className="mt-1 truncate text-[10px] text-white/45">
+                {currentSong?.title || t.music.track}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={startMusicFromPrompt}
+              className="flex h-10 shrink-0 items-center gap-2 rounded-full bg-[var(--accent)] px-4 text-xs font-semibold text-black transition-transform active:scale-95"
+              aria-label={t.music.play}
+            >
+              <Play size={14} />
+              <span>{t.music.play}</span>
+            </button>
+          </div>
+        </div>
+      )}
 
       <button
         type="button"

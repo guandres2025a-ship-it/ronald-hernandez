@@ -1,6 +1,6 @@
 const ja = {
   nav: { home: 'ホーム', paintings: '絵画', murals: '壁画', biography: '略歴' },
-  music: { title: '音楽', nowPlaying: '再生中', track: 'Ronald Hernández の音楽', play: '音楽を再生', pause: '音楽を一時停止', mute: 'ミュート', unmute: 'ミュート解除', previous: '前の曲', next: '次の曲', stop: '音楽を停止', volume: '音量', progress: '曲の進行状況' },
+  music: { title: '音楽', nowPlaying: '再生中', track: 'Ronald Hernández の音楽', play: '音楽を再生', pause: '音楽を一時停止', mute: 'ミュート', unmute: 'ミュート解除', previous: '前の曲', next: '次の曲', stop: '音楽を停止', volume: '音量', progress: '曲の進行状況', tapToStart: '音楽とともに入るにはタップ' },
   language: { title: '言語', current: '日本語' },
   common: { explore: '見る', learnMore: '詳しく見る', viewMore: 'もっと見る', contact: 'お問い合わせ', year: '年', technique: '技法', dimensions: 'サイズ' },
   hero: { eyebrow: 'アーティスト・壁画家・歴史家', title: 'Ronald Hernández', subtitle: '物語を残すアート。', description: '経験、記憶、土地を作品へと変える芸術的な視点。', exploreWorks: '作品を見る', discoverArtist: 'アーティストについて', reflection: 'リフレクション', quote: 'すべての作品は、忘却に抗う記憶の断片です。' },

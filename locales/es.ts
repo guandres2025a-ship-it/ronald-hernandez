@@ -19,6 +19,7 @@ const es = {
     stop: 'Detener música',
     volume: 'Volumen',
     progress: 'Progreso de la canción',
+    tapToStart: 'Toca para entrar con música',
   },
 
   language: {
