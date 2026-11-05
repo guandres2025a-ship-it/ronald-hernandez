@@ -19,6 +19,7 @@ const en = {
     stop: 'Stop music',
     volume: 'Volume',
     progress: 'Song progress',
+    tapToStart: 'Tap to enter with music',
   },
 
   language: {
