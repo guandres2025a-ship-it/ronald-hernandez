@@ -1,6 +1,6 @@
 const de = {
   nav: { home: 'Startseite', paintings: 'Gemälde', murals: 'Wandbilder', biography: 'Biografie' },
-  music: { title: 'Musik', nowPlaying: 'Wird abgespielt', track: 'Musik von Ronald Hernández', play: 'Musik abspielen', pause: 'Musik pausieren', mute: 'Stummschalten', unmute: 'Ton einschalten', previous: 'Vorheriges Lied', next: 'Nächstes Lied', stop: 'Musik stoppen', volume: 'Lautstärke', progress: 'Liedfortschritt' },
+  music: { title: 'Musik', nowPlaying: 'Wird abgespielt', track: 'Musik von Ronald Hernández', play: 'Musik abspielen', pause: 'Musik pausieren', mute: 'Stummschalten', unmute: 'Ton einschalten', previous: 'Vorheriges Lied', next: 'Nächstes Lied', stop: 'Musik stoppen', volume: 'Lautstärke', progress: 'Liedfortschritt', tapToStart: 'Tippen, um mit Musik einzutreten' },
   language: { title: 'Sprache', current: 'Deutsch' },
   common: { explore: 'Entdecken', learnMore: 'Mehr erfahren', viewMore: 'Mehr anzeigen', contact: 'Kontakt', year: 'Jahr', technique: 'Technik', dimensions: 'Maße' },
   hero: { eyebrow: 'Künstler · Muralist · Historiker', title: 'Ronald Hernández', subtitle: 'Kunst, die Geschichten bewahrt.', description: 'Eine künstlerische Perspektive, die Erfahrungen, Erinnerung und Orte in Kunstwerke verwandelt.', exploreWorks: 'Werke entdecken', discoverArtist: 'Den Künstler kennenlernen', reflection: 'Reflexion', quote: 'Jedes Werk ist ein Fragment der Erinnerung, das dem Vergessen widersteht.' },
