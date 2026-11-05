@@ -1,6 +1,6 @@
 const fr = {
   nav: { home: 'Accueil', paintings: 'Peintures', murals: 'Murales', biography: 'Biographie' },
-  music: { title: 'Musique', nowPlaying: 'Lecture en cours', track: 'Musique de Ronald Hernández', play: 'Lire la musique', pause: 'Mettre en pause', mute: 'Couper le son', unmute: 'Activer le son', previous: 'Chanson précédente', next: 'Chanson suivante', stop: 'Arrêter la musique', volume: 'Volume', progress: 'Progression de la chanson' },
+  music: { title: 'Musique', nowPlaying: 'Lecture en cours', track: 'Musique de Ronald Hernández', play: 'Lire la musique', pause: 'Mettre en pause', mute: 'Couper le son', unmute: 'Activer le son', previous: 'Chanson précédente', next: 'Chanson suivante', stop: 'Arrêter la musique', volume: 'Volume', progress: 'Progression de la chanson', tapToStart: 'Touchez pour entrer en musique' },
   language: { title: 'Langue', current: 'Français' },
   common: { explore: 'Explorer', learnMore: 'En savoir plus', viewMore: 'Voir plus', contact: 'Contact', year: 'Année', technique: 'Technique', dimensions: 'Dimensions' },
   hero: { eyebrow: 'Artiste · Muraliste · Historien', title: 'Ronald Hernández', subtitle: 'Un art qui préserve les histoires.', description: 'Une perspective artistique qui transforme les expériences, la mémoire et le territoire en œuvres.', exploreWorks: 'Explorer les œuvres', discoverArtist: "Rencontrer l'artiste", reflection: 'Réflexion', quote: 'Chaque œuvre est un fragment de mémoire qui résiste à l’oubli.' },
